@@ -2,7 +2,7 @@ package vendingMachineFX;
 /**
  * author@ Laszlo Szlatki
  * author@ Patrick James O'Neill
- * date: 24/04/2020
+ * date: 30/04/2020
  */
 
 import java.io.IOException;
@@ -57,7 +57,7 @@ public class Client extends User implements CsvPrint {
     }
 
     /**
-     * validates client details against the data from the Clients.dat file
+     * validates client details against the data from the clients.dat file
      *
      * @param name that user entered
      * @param password that user enteered
@@ -65,8 +65,6 @@ public class Client extends User implements CsvPrint {
      * @return validated client to use machine, or null if invalid details entered
      */
     public static Client getClientIfValid(String name, String password, List<Client> clients) {
-        // TODO!!!!!!!!!!!!!!!!!!!!!!!!!
-        // below is only to bypass csv file
         Client validClient = null;
 
         // looping through the list to get the client with matching 'name'
@@ -76,7 +74,6 @@ public class Client extends User implements CsvPrint {
             }
         }
         return validClient;
-
     }
 
     /**
@@ -97,10 +94,10 @@ public class Client extends User implements CsvPrint {
      * method to save client data to csv file
      *
      * @param machine that stores most up to date client list
-     * @throws IOException if problem writing to Clients.dat
+     * @throws IOException if problem writing to clients.dat
      */
     public void saveToFile(VendingMachine machine) throws IOException {
-        // construct the new clients list
+        // construct the new clients list with updated balances
         List<Client> oldClients = machine.getClients();
         List<Client> newClients = new ArrayList<>();
         for (Client c : oldClients) {
@@ -111,7 +108,7 @@ public class Client extends User implements CsvPrint {
             }
         }
         // save new client list to csv
-        CsvWriter.writeClientsToCSV("src/records/Clients.dat", newClients);
+        CsvWriter.writeClientsToCSV("src/records/clients.dat", newClients);
     }
 
     /**
@@ -121,7 +118,7 @@ public class Client extends User implements CsvPrint {
      */
     @Override
     public String toString() {
-        return "userName: " + getName() + "\t balance: �" + String.format("%.2f", balance);
+        return "userName: " + getName() + "\t balance: \u20AC" + String.format("%.2f", balance); // \u20AC unicode for €
     }
 
     /**

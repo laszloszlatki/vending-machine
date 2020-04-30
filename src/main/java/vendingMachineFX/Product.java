@@ -2,7 +2,7 @@ package vendingMachineFX;
 /**
  * author@ Laszlo Szlatki
  * author@ Patrick James O'Neill
- * date: 24/04/2020
+ * date: 30/04/2020
  */
 
 /**
@@ -86,14 +86,6 @@ public class Product implements Comparable<Product>, CsvPrint {
 	}
 
 	/**
-	 * after client buy, decrease qty by one ///////// if clientMenu changed to use
-	 * qty form machine, this can be removed.
-	 */
-	public void reduceQuantity() {
-		quantity--;
-	}
-
-	/**
 	 * Determines of this product is the same as the other product.
 	 * 
 	 * @param other the other product
@@ -122,14 +114,25 @@ public class Product implements Comparable<Product>, CsvPrint {
 	 * Formats the product's description and price to 2 decimal with filling 0-s
 	 */
 	public String toString() {
-		return  description + "\t @ �" + String.format("%.2f", price);
+		return  description + "\t @ \u20AC" + String.format("%.2f", price); // \u20AC is unicode for €
 	}
 
+	/**
+	 * check if two products are the same
+	 *
+	 * @param that product to be compared to
+	 * @return true if same, else otherwise
+	 */
 	@Override
 	public int compareTo(Product that) {
 		return that.description.compareTo(this.description);
 	}
 
+	/**
+	 * to format to csv requirements
+	 *
+	 * @return the formatted string
+	 */
 	@Override
 	public String toCsvString() {
 		return description + "," + location + "," + String.format("%.2f", price) + "," + quantity;

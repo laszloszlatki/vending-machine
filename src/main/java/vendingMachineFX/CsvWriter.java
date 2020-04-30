@@ -19,7 +19,6 @@ public class CsvWriter {
 
     // https://www.java67.com/2015/06/how-to-write-to-file-in-java-using-bufferedwriter.html
 
-
     /**
      * method to write upddated client details to file
      *
@@ -78,7 +77,7 @@ public class CsvWriter {
             }
             pwr.close();
             bwr.close();
-            System.out.println("Product.dat is succesfully updated now.");
+            System.out.println("product.dat is succesfully updated now.");
         }
     }
 }

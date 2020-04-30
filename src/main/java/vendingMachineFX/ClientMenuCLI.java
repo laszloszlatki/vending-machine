@@ -2,7 +2,7 @@ package vendingMachineFX;
 /**
  * author@ Laszlo Szlatki
  * author@ Patrick James O'Neill
- * date: 24/04/2020
+ * date: 30/04/2020
  */
 
 import java.io.IOException;
@@ -41,7 +41,7 @@ public class ClientMenuCLI {
                     // cycle through each location
                     for (String location : machine.getLocations()) {
                         // call getProductDetails() from machine
-                        System.out.println(machine.getProductDetailsPerLocation(location));
+                        System.out.println(machine.getProductDetailsPerLocationForCLI(location));
                     }
                     break;
                 case "B": ////////////////////////////////// buy a product form the machine
@@ -49,7 +49,7 @@ public class ClientMenuCLI {
                     // cycle through each location
                     for (String location : machine.getLocations()) {
                         // call getProductDetails() from machine
-                        System.out.println(machine.getProductDetailsPerLocation(location));
+                        System.out.println(machine.getProductDetailsPerLocationForCLI(location));
                     }
                     try {
                         System.out.println("Enter location:");
@@ -61,9 +61,9 @@ public class ClientMenuCLI {
                             Product p = machine.getProductOnLocation(location);
                             machine.buyProductPerLocation(location, /*p, */client);
                             System.out.println(
-                                    "Purchased one " + p.getDescription() + " for �" + String.format("%.2f", p.getPrice()));
+                                    "Purchased one " + p.getDescription() + " for \u20AC" + String.format("%.2f", p.getPrice()));
                             System.out.println(
-                                    "You have �" + String.format("%.2f", client.checkBalance()) + " left on your account");
+                                    "You have \u20AC" + String.format("%.2f", client.checkBalance()) + " left on your account");
                         } else {
                             System.out.println("destination is empty. Try to select a different location.");
                         }

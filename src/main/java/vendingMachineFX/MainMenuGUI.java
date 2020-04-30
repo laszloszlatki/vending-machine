@@ -91,7 +91,7 @@ public class MainMenuGUI extends Application {
         main.getChildren().add(pasLabel);
         main.getChildren().add(password);
 
-        // lambda statement to associate add start button with action
+        // lambda statement to associate start button with action
         start.setOnAction(e -> {
             switch (comboBox.getSelectionModel().getSelectedIndex()) {
                 case 0: /////////// give error message if none selected

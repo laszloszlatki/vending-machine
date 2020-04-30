@@ -2,7 +2,7 @@ package vendingMachineFX;
 /**
  * author@ Laszlo Szlatki
  * author@ Patrick James O'Neill
- * date: 24/04/2020
+ * date: 30/04/2020
  */
 
 import javafx.geometry.Insets;
@@ -10,11 +10,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -130,7 +127,7 @@ public class ClientMenuGUI {
         Label lblName = new Label("UserName:");
         Label name = new Label(client.getName());
         Label lblBalance = new Label("Balance:");
-        Label balance = new Label(String.format("%.2f", client.checkBalance()));
+        Label balance = new Label(String.format("\u20AC%.2f", client.checkBalance())); // \u20AC is the unicode for euro sign
         Button btnLogout = new Button("Logout");
         rightVBox.getChildren().addAll(lblName, name, lblBalance, balance, btnLogout);
 
@@ -195,7 +192,7 @@ public class ClientMenuGUI {
                 // reduce client balance and display
                 balance.setText(String.format("%.2f", client.checkBalance()));
                 // display message of successful purchase
-                message.setText("Purchased one " + p.getDescription() + " for €" + String.format("%.2f", p.getPrice()));
+                message.setText("Purchased one " + p.getDescription() + " for \u20AC" + String.format("%.2f", p.getPrice()));
             } else {
                 message.setText("You don't have enough money to purchase this item.");
             }

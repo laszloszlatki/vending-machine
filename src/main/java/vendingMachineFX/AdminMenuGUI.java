@@ -235,6 +235,7 @@ public class AdminMenuGUI {
      * - or if existing product needs to be topped up
      * - or clear a location
      * then resets all values and visibility on RHS VBox to default
+     *
      * @param btn button to be associated with
      * @param location where action to be carried out
      * @param description textfield of product description for adding product

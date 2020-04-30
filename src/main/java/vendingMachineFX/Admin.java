@@ -36,7 +36,7 @@ public class Admin extends User implements CsvPrint {
      *
      * @param name     entered by user
      * @param password entered by user
-     * @param admins   list of admins created from the Admin.dat csv file
+     * @param admins   list of admins created from the admin.dat csv file
      * @return the admin to use the system
      */
     public static Admin getAdminIfValid(String name, String password, List<Admin> admins) {
@@ -77,7 +77,7 @@ public class Admin extends User implements CsvPrint {
         if (other == this) {
             return true;
         }
-        // if other is not the same type as this, return false
+        // if we compare to something else than Admin
         if (!(other instanceof Admin)) {
             return false;
         }
@@ -104,6 +104,6 @@ public class Admin extends User implements CsvPrint {
      */
     public void exportProductsToCsv(List<Product> newProducts) throws IOException {
         // save new products list to csv
-        CsvWriter.writeProductsToCSV("src/records/Product.dat", newProducts);
+        CsvWriter.writeProductsToCSV("src/records/product.dat", newProducts);
     }
 }

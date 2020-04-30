@@ -30,20 +30,19 @@ public class Main {
         boolean more = true;
         in = new Scanner(System.in);
 
-        // load all clients form Clients.dat
-        List<Client> clients = CsvReader.readClientsFromCSV("src/records/Clients.dat");
+        // load all clients form clients.dat
+        List<Client> clients = CsvReader.readClientsFromCSV("src/records/clients.dat");
 
-        // load all admins form Admin.dat
-        List<Admin> admins = CsvReader.readAdminsFromCSV("src/records/Admin.dat");
+        // load all admins form admin.dat
+        List<Admin> admins = CsvReader.readAdminsFromCSV("src/records/admin.dat");
 
-        // load all products form Product.dat
-        List<Product> products = CsvReader.readProductsFromCSV("src/records/Product.dat");
+        // load all products form product.dat
+        List<Product> products = CsvReader.readProductsFromCSV("src/records/product.dat");
 
         machine = new VendingMachine(products, clients, admins);
 
         System.out.println("-------------------------------------------\n"
                 + "  Welcome to our wending machine simulator\n"
-                + "This is our end of term project for CS6402\n"
                 + "-------------------------------------------\n"
                 + "Please select the interface you want to use\n");
 
@@ -52,9 +51,7 @@ public class Main {
 
             String command = in.nextLine().toUpperCase();
             if (command.equals("G")) {
-                System.out.println("Hello GUI");
-//				VendingMachineMenuGUI menu = new VendingMachineMenuGUI(machine);
-//				menu.run(machine);
+                System.out.println("GUI will open in a new window");
                 Application.launch(MainMenuGUI.class, args);
                 more = false;
 

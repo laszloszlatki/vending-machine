@@ -44,7 +44,7 @@ public class AdminMenuCLI {
                     // cycle through each location
                     for (String location : machine.getLocations()) {
                         // call getProductDetails() from machine
-                        System.out.println(machine.getProductDetailsPerLocation(location));
+                        System.out.println(machine.getProductDetailsPerLocationForCLI(location));
                     }
                     break;
                 case "A": ////////////////////////////// add new product to empty location
@@ -96,10 +96,10 @@ public class AdminMenuCLI {
                         System.out.println("Invalid quantity");
                     }
                     break;
-                case "L": ///////////////////// logout wont update Product.dat file
+                case "L": ///////////////////// logout wont update product.dat file
                     admin.logout(machine);
                     break;
-                case "P": ///////////////////// power off update Product.dat file and stops program
+                case "P": ///////////////////// power off update product.dat file and stops program
                     admin.exportProductsToCsv(machine.getProducts());
                     System.exit(0);
             }
