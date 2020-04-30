@@ -1,9 +1,5 @@
 package vendingMachineFX;
-/**
- * author@ Laszlo Szlatki
- * author@ Patrick James O'Neill
- * date: 24/04/2020
- */
+
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
