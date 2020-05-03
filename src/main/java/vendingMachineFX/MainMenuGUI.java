@@ -9,11 +9,6 @@
  * */
 
 package vendingMachineFX;
-/**
- * author@ Laszlo Szlatki
- * author@ Patrick James O'Neill
- * date: 24/04/2020
- */
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
