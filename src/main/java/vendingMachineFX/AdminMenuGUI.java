@@ -125,7 +125,7 @@ public class AdminMenuGUI {
         VBox leftVBox = new VBox(20);
         leftVBox.setAlignment(Pos.TOP_CENTER);
 
-        leftVBox.getChildren().addAll(rowAHBox, rowBHBox, rowCHBox, message);
+        leftVBox.getChildren().addAll(message, rowAHBox, rowBHBox, rowCHBox);
 
         // RIGHT
 
